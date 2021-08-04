@@ -17,5 +17,5 @@ mybatis:
   mapper-locations: classpath:/mapper/*Dao.xml
 
 pagehelper:
-  dialect: mysql
+  helper-dialect: mysql
 
