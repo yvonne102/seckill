@@ -3,5 +3,19 @@ server:
   servlet:
     context-path: /seckill
 
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/seckill?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 941020
 
+mybatis:
+  type-aliases-package: com.yvonne.seckill.pojo
+  mapper-locations: classpath:/mapper/*Dao.xml
+
+pagehelper:
+  dialect: mysql
 

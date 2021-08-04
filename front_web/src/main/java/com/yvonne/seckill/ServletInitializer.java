@@ -1,4 +1,4 @@
-package com.yvonne.seckill.front_web;
+package com.yvonne.seckill;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
