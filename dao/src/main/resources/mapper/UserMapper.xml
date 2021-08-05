@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yvonne.seckill.dao.UserDao">
+<mapper namespace="com.yvonne.seckill.dao.UserMapper">
   <resultMap id="BaseResultMap" type="com.yvonne.seckill.pojo.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="is_active" jdbcType="INTEGER" property="isActive" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_name, `password`, email, phone, is_active, role_id, create_time
+    id, user_name, password, phone, email, role_id, create_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -24,31 +23,31 @@
     delete from t_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.yvonne.seckill.pojo.User" useGeneratedKeys="true">
-    insert into t_user (user_name, `password`, email, 
-      phone, is_active, role_id, 
+  <insert id="insert" parameterType="com.yvonne.seckill.pojo.User">
+    insert into t_user (id, user_name, password, 
+      phone, email, role_id, 
       create_time)
-    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{isActive,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.yvonne.seckill.pojo.User" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.yvonne.seckill.pojo.User">
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="userName != null">
         user_name,
       </if>
       <if test="password != null">
-        `password`,
-      </if>
-      <if test="email != null">
-        email,
+        password,
       </if>
       <if test="phone != null">
         phone,
       </if>
-      <if test="isActive != null">
-        is_active,
+      <if test="email != null">
+        email,
       </if>
       <if test="roleId != null">
         role_id,
@@ -58,20 +57,20 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="isActive != null">
-        #{isActive,jdbcType=INTEGER},
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="roleId != null">
         #{roleId,jdbcType=INTEGER},
@@ -88,16 +87,13 @@
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
-        `password` = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="isActive != null">
-        is_active = #{isActive,jdbcType=INTEGER},
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="roleId != null">
         role_id = #{roleId,jdbcType=INTEGER},
@@ -111,10 +107,9 @@
   <update id="updateByPrimaryKey" parameterType="com.yvonne.seckill.pojo.User">
     update t_user
     set user_name = #{userName,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
-      is_active = #{isActive,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
       role_id = #{roleId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

@@ -14,9 +14,9 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/findUser")
-    public String findUser(Integer id){
+    public User findUser(Integer id){
         User user = userService.findByPrimaryKey(id);
-        return user.getUserName();
+        return user;
     }
 
 }

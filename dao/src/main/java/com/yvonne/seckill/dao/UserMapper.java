@@ -2,7 +2,7 @@ package com.yvonne.seckill.dao;
 
 import com.yvonne.seckill.pojo.User;
 
-public interface UserDao {
+public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(User record);
