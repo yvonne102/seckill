@@ -11,6 +11,9 @@ spring:
       url: jdbc:mysql://localhost:3306/seckill?useUnicode=true&characterEncoding=utf-8
       username: root
       password: 941020
+  web:
+    resources:
+      static-locations: /WEB-INF/
 
 mybatis:
   type-aliases-package: com.yvonne.seckill.pojo
@@ -18,4 +21,5 @@ mybatis:
 
 pagehelper:
   helper-dialect: mysql
+
 
