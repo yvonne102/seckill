@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" language="java" %>
 <%@include file="tag.jsp" %>
-<%@taglib prefix="tags" tagdir="/WEB-INF/tags" %>
+<%--<%@taglib prefix="tags" tagdir="/WEB-INF/tags" %>--%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -52,8 +52,8 @@
     </div>
 </div>
 </body>
-<script src="${ctx}/static/plugins/jquery.js"></script>
-<script src="${ctx}/static/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+<script src="${ctx}/plugin/jquery.js"></script>
+<script src="${ctx}/plugin/bootstrap-3.3.0/js/bootstrap.min.js"></script>
 </html>
 
 

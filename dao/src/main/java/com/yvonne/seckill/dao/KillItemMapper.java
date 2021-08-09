@@ -1,6 +1,9 @@
 package com.yvonne.seckill.dao;
 
+import com.yvonne.seckill.pojo.Item;
 import com.yvonne.seckill.pojo.KillItem;
+
+import java.util.List;
 
 public interface KillItemMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +17,6 @@ public interface KillItemMapper {
     int updateByPrimaryKeySelective(KillItem record);
 
     int updateByPrimaryKey(KillItem record);
+
+    List<KillItem> selectAll();
 }

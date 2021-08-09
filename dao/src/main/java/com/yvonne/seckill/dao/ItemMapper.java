@@ -2,6 +2,8 @@ package com.yvonne.seckill.dao;
 
 import com.yvonne.seckill.pojo.Item;
 
+import java.util.List;
+
 public interface ItemMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface ItemMapper {
     int updateByPrimaryKeySelective(Item record);
 
     int updateByPrimaryKey(Item record);
+
+
 }
