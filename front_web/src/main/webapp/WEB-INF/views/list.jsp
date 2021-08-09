@@ -36,7 +36,7 @@
                         <td><fmt:formatDate value="${item.endTime}" pattern='yyyy-MM-dd HH:mm:ss'/></td>
                         <td>
                             <c:choose>
-                                <c:when test="${item.canKill==1}">
+                                <c:when test="${item.canKill==true}">
                                     <a class="btn btn-info" href="${ctx}/item/detail/${item.id}" target="_blank">详情</a>
                                 </c:when>
                                 <c:otherwise>
