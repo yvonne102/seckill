@@ -37,7 +37,7 @@
                         <td>
                             <c:choose>
                                 <c:when test="${item.canKill==true}">
-                                    <a class="btn btn-info" href="${ctx}/item/detail/${item.id}" target="_blank">详情</a>
+                                    <a class="btn btn-info" href="${ctx}/killItem/detail?id=${item.id}" target="_blank">详情</a>
                                 </c:when>
                                 <c:otherwise>
                                     <a class="btn btn-info">哈哈~商品已抢购完毕或者不在抢购时间段哦!</a>

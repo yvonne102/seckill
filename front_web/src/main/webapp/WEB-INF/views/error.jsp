@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>首页</title>
+    <title>错误</title>
 </head>
 <body>
-    <h1>请求页面不存在...</h1>
+    <h1>请求出错</h1>
 </body>
 </html>

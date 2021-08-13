@@ -26,4 +26,14 @@ public class KillItemController {
         return "list";
     }
 
+    @RequestMapping("/detail")
+    public String detail(Integer id,Model model){
+        if (id == null || id <=0){
+            return "error";
+        }
+        KillItem detail = killItemService.findDetail(id);
+        model.addAttribute("detail",detail);
+        return "info";
+    }
+
 }

@@ -11,4 +11,6 @@ public interface KillItemService {
 
     List<KillItem> findAll();
 
+    KillItem findDetail(Integer id);
+
 }

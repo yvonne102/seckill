@@ -25,11 +25,18 @@
     id, item_id, total, start_time, end_time, is_avtive
   </sql>
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_kill_item
-    where id = #{id,jdbcType=INTEGER}
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="JoinResultMap">
+    select
+      ki.id id, item_id, total, start_time, end_time, is_avtive,i.name item_name,
+      (
+        case when (now() between start_time and end_time and total>0)
+               then 1
+             else 0
+          end
+        ) can_kill
+    from t_kill_item ki left join t_item i
+        on ki.item_id = i.id
+    where ki.is_avtive =1 and ki.id = #{id,jdbcType=INTEGER}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -133,6 +140,13 @@
         ) can_kill
     from t_kill_item ki left join t_item i
         on ki.item_id = i.id
+    where ki.is_avtive =1
   </select>
+
+  <update id="updateKilledItem">
+    update t_kill_item
+    set total = total - 1
+    where id = #{killId}
+  </update>
 
 </mapper>

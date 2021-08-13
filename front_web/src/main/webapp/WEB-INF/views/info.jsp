@@ -26,7 +26,7 @@
 
     <td>
         <c:choose>
-            <c:when test="${detail.canKill==1}">
+            <c:when test="${detail.canKill==true}">
                 <a class="btn btn-info" style="font-size: 20px" onclick="executeKill()">抢购</a>
             </c:when>
             <c:otherwise>
@@ -37,13 +37,12 @@
 </div>
 
 </body>
-<script src="${ctx}/static/plugins/jquery.js"></script>
-<script src="${ctx}/static/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
-<script src="${ctx}/static/plugins/jquery.cookie.min.js"></script>
-<script src="${ctx}/static/plugins/jquery.countdown.min.js"></script>
+<script src="${ctx}/js/jquery.js"></script>
+<script src="${ctx}/plugin/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+<script src="${ctx}/js/jquery.cookie.min.js"></script>
+<script src="${ctx}/js/jquery.countdown.min.js"></script>
 
-<%--<script src="${ctx}/static/script/kill.js"></script>--%>
-<link rel="stylesheet" href="${ctx}/static/css/detail.css" type="text/css">
+<link rel="stylesheet" href="${ctx}/css/detail.css" type="text/css">
 <script type="text/javascript">
     function executeKill() {
         $.ajax({
@@ -71,12 +70,9 @@
 
     function getJsonData() {
         var killId=$("#killId").val();
-        /*var data = {
+        var data = {
             "killId":killId,
             "userId":1
-        };*/
-        var data = {
-            "killId":killId
         };
         return data;
     }

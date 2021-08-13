@@ -46,6 +46,7 @@ create table t_kill_item(
 drop table if exists t_kill_order;
 create table t_kill_order(
     id int auto_increment,
+    code varchar(100) not null unique ,
     kill_id int comment '秒杀id',
     item_id int comment '商品id',
     user_id int comment '用户id',

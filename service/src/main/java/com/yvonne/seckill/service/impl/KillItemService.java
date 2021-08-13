@@ -24,4 +24,9 @@ public class KillItemService implements com.yvonne.seckill.service.KillItemServi
     public List<KillItem> findAll() {
         return killItemMapper.selectAll();
     }
+
+    @Override
+    public KillItem findDetail(Integer id) {
+        return killItemMapper.selectByPrimaryKey(id);
+    }
 }

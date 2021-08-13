@@ -10,6 +10,8 @@ import java.util.Date;
 public class KillOrder implements Serializable {
     private Integer id;
 
+    private String code;
+
     private Integer killId;
 
     private Integer itemId;
